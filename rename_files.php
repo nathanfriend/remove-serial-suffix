@@ -6,7 +6,7 @@
 //0000003_001.jpg would be renamed to 0000003.jpg
 //0000003_002.jpg would be renamed to 0000003.jpg overwriting existing file.
 //0000003_003.jpg would be renamed to 0000003.jpg overwriting existing file.
-
+ini_set('display_errors',1): error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
 
 //Get current working direcotry and load in to $directory variable.
