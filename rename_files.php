@@ -14,49 +14,72 @@ date_default_timezone_set('Europe/London');
 //Get current working direcotry and load in to $directory variable.
 $directory = getcwd()."/";
 
+
+//Stage 1
 //Scan directory and load file names into $files array, excluding this script current and parent directories.
-$files = array_diff(scandir($directory), array('..', '.', 'rename_files.php'));
+$files = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
 
 //Loop through $files array.
 foreach($files as $result) {
     //Check if file name contains _001.jpg
     if (strpos($result,'_001.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_001.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_001.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_001.jpg','',$result));
+    echo $result." renamed to ".str_replace('_001.jpg','',$result)."\r\n";
 }
 
 //Check if file name contains _002.jpg
     if (strpos($result,'_002.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_002.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_002.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_002.jpg','',$result));
+    echo $result." renamed to ".str_replace('_002.jpg','',$result)."\r\n";
 }
 
 //Check if file name contains _003.jpg
     if (strpos($result,'_003.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_003.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_003.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_003.jpg','',$result));
+    echo $result." renamed to ".str_replace('_003.jpg','',$result)."\r\n";
 }
 
 //Check if file name contains _004.jpg
     if (strpos($result,'_004.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_004.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_004.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_004.jpg','',$result));
+    echo $result." renamed to ".str_replace('_004.jpg','',$result)."\r\n";
 }
  if (strpos($result,'_005.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_005.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_005.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_005.jpg','',$result));
+    echo $result." renamed to ".str_replace('_005.jpg','',$result)."\r\n";
 }
 
  if (strpos($result,'_006.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_006.jpg','.jpg',$result));
-        echo $result." renamed to ".str_replace('_006.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_006.jpg','',$result));
+        echo $result." renamed to ".str_replace('_006.jpg','',$result)."\r\n";
 }
 if (strpos($result,'_007.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_007.jpg','.jpg',$result));
-        echo $result." renamed to ".str_replace('_007.jpg','.jpg',$result)."\r\n";
+    rename($directory."/".$result,$directory."/".str_replace('_007.jpg','',$result));
+        echo $result." renamed to ".str_replace('_007.jpg','',$result)."\r\n";
  }
 }
- echo "\r\n\r\nProcessing completed ". date('d/m/Y H:i').".";
+ 
+//Stage 2
+echo "Stage 2\r\n";
+//Scan directory and load file names into $files2 array, excluding this script current and parent directories.
+$files2 = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
+
+foreach($files2 as $result) {
+    echo $result."\r\n"; 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+echo "\r\n\r\nProcessing completed ". date('d/m/Y H:i').".";
 
 ?>
 
