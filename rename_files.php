@@ -40,9 +40,21 @@ foreach($files as $result) {
     rename($directory."/".$result,$directory."/".str_replace('_004.jpg','.jpg',$result));
     echo $result." renamed to ".str_replace('_004.jpg','.jpg',$result)."<br>";
 }
-
+ if (strpos($result,'_005.jpg') !== false) {
+    rename($directory."/".$result,$directory."/".str_replace('_005.jpg','.jpg',$result));
+    echo $result." renamed to ".str_replace('_005.jpg','.jpg',$result)."<br>";
 }
-echo "<br><br>Processing completed ". date('d/m/Y H:i').".";
+
+ if (strpos($result,'_006.jpg') !== false) {
+    rename($directory."/".$result,$directory."/".str_replace('_006.jpg','.jpg',$result));
+        echo $result." renamed to ".str_replace('_006.jpg','.jpg',$result)."<br>";
+}
+if (strpos($result,'_007.jpg') !== false) {
+    rename($directory."/".$result,$directory."/".str_replace('_007.jpg','.jpg',$result));
+        echo $result." renamed to ".str_replace('_007.jpg','.jpg',$result)."<br>";
+ }
+}
+ echo "<br><br>Processing completed ". date('d/m/Y H:i').".";
 
 ?>
 
