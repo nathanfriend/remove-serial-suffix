@@ -1,6 +1,6 @@
 <?php
 //Author: Nathan Friend nathan.friend@gmail.com
-//Version 0.1 03/09/14
+//Version 0.2 01/10/14<br
 //Remove serial suffix from files in current directory leaving highest version. 
 //e.g. For files 0000003_001.jpg, 0000003_002.jpg, 0000003_003.jpg.
 //0000003_001.jpg would be renamed to 0000003.jpg
@@ -16,6 +16,7 @@ $directory = getcwd()."/";
 
 
 //Stage 1
+echo "Stage 1 (Remove serial)\r\n";
 //Scan directory and load file names into $files array, excluding this script current and parent directories.
 $files = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
 
@@ -25,52 +26,29 @@ foreach($files as $result) {
     if (strpos($result,'_001.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_001.jpg','',$result));
     echo $result." renamed to ".str_replace('_001.jpg','',$result)."\r\n";
-
-
-//Check if file name contains _002.jpg
+}
     if (strpos($result,'_002.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_002.jpg','',$result));
     echo $result." renamed to ".str_replace('_002.jpg','',$result)."\r\n";
 }
-
-//Check if file name contains _003.jpg
     if (strpos($result,'_003.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_003.jpg','',$result));
     echo $result." renamed to ".str_replace('_003.jpg','',$result)."\r\n";
 }
-
-//Check if file name contains _004.jpg
-    if (strpos($result,'_004.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_004.jpg','',$result));
-    echo $result." renamed to ".str_replace('_004.jpg','',$result)."\r\n";
-}
- if (strpos($result,'_005.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_005.jpg','',$result));
-    echo $result." renamed to ".str_replace('_005.jpg','',$result)."\r\n";
-}
-
- if (strpos($result,'_006.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_006.jpg','',$result));
-        echo $result." renamed to ".str_replace('_006.jpg','',$result)."\r\n";
-}
-if (strpos($result,'_007.jpg') !== false) {
-    rename($directory."/".$result,$directory."/".str_replace('_007.jpg','',$result));
-        echo $result." renamed to ".str_replace('_007.jpg','',$result)."\r\n";
- }
-}}
  
+
+}
 //Stage 2
-echo "Stage 2\r\n";
+echo "\r\nStage 2 (0 Pad to 8 chrarters)\r\n";
 //Scan directory and load file names into $files2 array, excluding this script current and parent directories.
 $files2 = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
 
 foreach($files2 as $result) {
-
-echo str_pad($result, 8, "0", STR_PAD_LEFT)."\r\n"; 
+echo $result." renamed to ".str_pad($result, 8, "0", STR_PAD_LEFT).".jpg\r\n"; 
+rename($directory."/".$result,$directory."/".str_pad($result, 8, "0", STR_PAD_LEFT).".jpg");
 }
 
-
-echo "\r\n\r\nProcessing completed ". date('d/m/Y H:i').".";
+echo "\r\nProcessing completed ". date('d/m/Y H:i').".";
 
 ?>
 
