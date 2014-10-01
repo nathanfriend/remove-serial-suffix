@@ -6,7 +6,9 @@
 //0000003_001.jpg would be renamed to 0000003.jpg
 //0000003_002.jpg would be renamed to 0000003.jpg overwriting existing file.
 //0000003_003.jpg would be renamed to 0000003.jpg overwriting existing file.
-ini_set('display_errors',1): error_reporting(E_ALL);
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+
 date_default_timezone_set('Europe/London');
 
 //Get current working direcotry and load in to $directory variable.
@@ -20,41 +22,41 @@ foreach($files as $result) {
     //Check if file name contains _001.jpg
     if (strpos($result,'_001.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_001.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_001.jpg','.jpg',$result)."<br>";
+    echo $result." renamed to ".str_replace('_001.jpg','.jpg',$result)."\r\n";
 }
 
 //Check if file name contains _002.jpg
     if (strpos($result,'_002.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_002.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_002.jpg','.jpg',$result)."<br>";
+    echo $result." renamed to ".str_replace('_002.jpg','.jpg',$result)."\r\n";
 }
 
 //Check if file name contains _003.jpg
     if (strpos($result,'_003.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_003.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_003.jpg','.jpg',$result)."<br>";
+    echo $result." renamed to ".str_replace('_003.jpg','.jpg',$result)."\r\n";
 }
 
 //Check if file name contains _004.jpg
     if (strpos($result,'_004.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_004.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_004.jpg','.jpg',$result)."<br>";
+    echo $result." renamed to ".str_replace('_004.jpg','.jpg',$result)."\r\n";
 }
  if (strpos($result,'_005.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_005.jpg','.jpg',$result));
-    echo $result." renamed to ".str_replace('_005.jpg','.jpg',$result)."<br>";
+    echo $result." renamed to ".str_replace('_005.jpg','.jpg',$result)."\r\n";
 }
 
  if (strpos($result,'_006.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_006.jpg','.jpg',$result));
-        echo $result." renamed to ".str_replace('_006.jpg','.jpg',$result)."<br>";
+        echo $result." renamed to ".str_replace('_006.jpg','.jpg',$result)."\r\n";
 }
 if (strpos($result,'_007.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_007.jpg','.jpg',$result));
-        echo $result." renamed to ".str_replace('_007.jpg','.jpg',$result)."<br>";
+        echo $result." renamed to ".str_replace('_007.jpg','.jpg',$result)."\r\n";
  }
 }
- echo "<br><br>Processing completed ". date('d/m/Y H:i').".";
+ echo "\r\n\r\nProcessing completed ". date('d/m/Y H:i').".";
 
 ?>
 
