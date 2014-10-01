@@ -25,7 +25,7 @@ foreach($files as $result) {
     if (strpos($result,'_001.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_001.jpg','',$result));
     echo $result." renamed to ".str_replace('_001.jpg','',$result)."\r\n";
-}
+
 
 //Check if file name contains _002.jpg
     if (strpos($result,'_002.jpg') !== false) {
@@ -57,7 +57,7 @@ if (strpos($result,'_007.jpg') !== false) {
     rename($directory."/".$result,$directory."/".str_replace('_007.jpg','',$result));
         echo $result." renamed to ".str_replace('_007.jpg','',$result)."\r\n";
  }
-}
+}}
  
 //Stage 2
 echo "Stage 2\r\n";
@@ -65,18 +65,9 @@ echo "Stage 2\r\n";
 $files2 = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
 
 foreach($files2 as $result) {
-    echo $result."\r\n"; 
 
+echo str_pad($result, 8, "0", STR_PAD_LEFT)."\r\n"; 
 }
-
-
-
-
-
-
-
-
-
 
 
 echo "\r\n\r\nProcessing completed ". date('d/m/Y H:i').".";
