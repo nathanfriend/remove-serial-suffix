@@ -44,8 +44,8 @@ echo "\r\nStage 2 (0 Pad to 8 chrarters)\r\n";
 $files2 = array_diff(scandir($directory), array('..', '.', 'rename_files.php','nbproject','README.md','LICENSE','.git','.gitignore','skel'));
 
 foreach($files2 as $result) {
-echo $result." renamed to ".str_pad($result, 8, "0", STR_PAD_LEFT).".jpg\r\n"; 
-rename($directory."/".$result,$directory."/".str_pad($result, 8, "0", STR_PAD_LEFT).".jpg");
+echo $result." renamed to ".str_pad((int)$result, 8, "0", STR_PAD_LEFT).".jpg\r\n"; 
+rename($directory."/".$result,$directory."/".str_pad((int)$result, 8, "0", STR_PAD_LEFT).".jpg");
 }
 
 echo "\r\nProcessing completed ". date('d/m/Y H:i').".";
